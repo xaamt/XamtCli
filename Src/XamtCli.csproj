@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>XAMT_CLI</RootNamespace>
+    <RootNamespace>XamtCli</RootNamespace>
     <AssemblyName>xa</AssemblyName>
     <PackageId>XAMT Cli</PackageId>
     <Authors>Karim Peymani</Authors>
@@ -11,8 +11,6 @@
     <Product>XAMT Cli</Product>
     <Copyright>XAMT CLI, Copyright (C) XAMT Professionals. All rights reserved.</Copyright>
     <Description>XAMT CLI is a personal cli to faster productivity</Description>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
     <Version>1.1.0</Version>
   </PropertyGroup>
 

@@ -35,10 +35,13 @@ namespace XamtCli.Commands
             {
                 try
                 {
-                    file.Delete();
-                    ConsoleHelper.WriteInfo($"Deleting file {file.Name} was successful");
-                    fileDumpCount++;
-                    dumpSize += file.Length;
+                    if (File.Exists(file.FullName))
+                    {
+                        file.Delete();
+                        ConsoleHelper.WriteInfo($"Deleting file {file.Name} was successful");
+                        fileDumpCount++;
+                        dumpSize += file.Length;
+                    }
                 }
                 catch (Exception e)
                 {
@@ -53,9 +56,12 @@ namespace XamtCli.Commands
             {
                 try
                 {
-                    Directory.Delete(folder.FullName, true);
-                    ConsoleHelper.WriteInfo($"Deleting folder{folder.Name} was successful");
-                    folderDumpCount++;
+                    if (Directory.Exists(folder.FullName))
+                    {
+                        Directory.Delete(folder.FullName, true);
+                        ConsoleHelper.WriteInfo($"Deleting folder{folder.Name} was successful");
+                        folderDumpCount++;
+                    }
                 }
                 catch (Exception e)
                 {

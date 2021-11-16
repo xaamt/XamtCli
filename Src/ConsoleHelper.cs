@@ -17,10 +17,10 @@ namespace XamtCli
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
             var logoText = @"
-       _  _____   __  _________  _______   ____
-      | |/_/ _ | /  |/  /_  __/ / ___/ /  /  _/
-     _>  </ __ |/ /|_/ / / /   / /__/ /___/ /  
-    /_/|_/_/ |_/_/  /_/ /_/    \___/____/___/";
+               _  _____   __  _________  _______   ____
+              | |/_/ _ | /  |/  /_  __/ / ___/ /  /  _/
+             _>  </ __ |/ /|_/ / / /   / /__/ /___/ /  
+            /_/|_/_/ |_/_/  /_/ /_/    \___/____/___/";
             Console.WriteLine(logoText);
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -41,7 +41,7 @@ namespace XamtCli
             Console.ForegroundColor = ConsoleColor.Red;
 
             Console.WriteLine($"Version: {version}");
-            Console.WriteLine($"Location: {location}");
+            Console.WriteLine($"Path: {location}");
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine($"_________________________________________________________________________");
             Console.ResetColor();
