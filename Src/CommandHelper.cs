@@ -35,7 +35,7 @@ namespace XamtCli
         /// <returns></returns>
         public static CommandDefenition ParseCommand(this string input)
         {
-            var parts = input.Split(new char[] { ' ', '.', '-' }, StringSplitOptions.RemoveEmptyEntries);
+            var parts = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
             var result = new CommandDefenition()
             {

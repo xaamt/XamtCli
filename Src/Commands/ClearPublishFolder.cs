@@ -15,7 +15,7 @@ namespace XamtCli.Commands
 
         public bool Execute(params string[] param)
         {
-            var dupExtenstions = new string[] {".pdb"};
+            var dumpExtenstions = new string[] {".pdb", ".design", ".tmp", ".temp" };
             
             var startFolder = Directory.GetCurrentDirectory();
             var dir = new DirectoryInfo(startFolder);
@@ -26,7 +26,7 @@ namespace XamtCli.Commands
             
             foreach (var file in fileList)
             {
-                if (dupExtenstions.Contains(file.Extension))
+                if (dumpExtenstions.Contains(file.Extension.ToLower()))
                 {
                     try
                     {

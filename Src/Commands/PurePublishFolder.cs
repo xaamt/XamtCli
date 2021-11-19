@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using XamtCli.Helpers;
 
 namespace XamtCli.Commands
 {
@@ -15,6 +16,14 @@ namespace XamtCli.Commands
 
         public bool Execute(params string[] param)
         {
+            var armanApp = FileHelper.DetectArmanApplication();
+
+            if (armanApp == null)
+            {
+                ConsoleHelper.WriteError($"Pure command is only available on ArmanIT application folder for security reseans.");
+                return true;
+            }
+
             var primaryExtenstions = new string[] { ".dll", ".exe", ".xml" };
 
             var startFolder = Directory.GetCurrentDirectory();

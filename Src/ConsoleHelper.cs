@@ -21,6 +21,7 @@ namespace XamtCli
               | |/_/ _ | /  |/  /_  __/ / ___/ /  /  _/
              _>  </ __ |/ /|_/ / / /   / /__/ /___/ /  
             /_/|_/_/ |_/_/  /_/ /_/    \___/____/___/";
+
             Console.WriteLine(logoText);
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -65,10 +66,30 @@ namespace XamtCli
         /// </summary>
         /// <param name="value">plain text</param>
         /// <param name="color">foreground color</param>
-        public static void WriteLine(string value, ConsoleColor color = ConsoleColor.Gray)
+        public static void WriteLine(string value, ConsoleColor color = ConsoleColor.Gray, bool withoutTime = false)
         {
             Console.ForegroundColor = color;
-            Console.WriteLine($"{DateTime.Now:HH:mm:ss} => {value}");
+            if (withoutTime)
+            {
+                Console.WriteLine($"{value}");
+            }
+            else
+            {
+                Console.WriteLine($"{DateTime.Now:HH:mm:ss} => {value}");
+            }
+            
+            Console.ResetColor();
+        }
+
+        /// <summary>
+        /// Write a text with color
+        /// </summary>
+        /// <param name="value">plain text</param>
+        /// <param name="color">foreground color</param>
+        public static void Write(string value, ConsoleColor color = ConsoleColor.Gray)
+        {
+            Console.ForegroundColor = color;
+            Console.Write($"{value}");
             Console.ResetColor();
         }
 
@@ -76,25 +97,31 @@ namespace XamtCli
         /// Write Title Line
         /// </summary>
         /// <param name="value"></param>
-        public static void WriteTitle(string value) => WriteLine(value, ConsoleColor.Cyan);
+        public static void WriteTitle(string value, bool withoutTime = false) => WriteLine(value, ConsoleColor.Cyan, withoutTime);
 
         /// <summary>
         /// Write Info Line
         /// </summary>
         /// <param name="value"></param>
-        public static void WriteInfo(string value) => WriteLine(value, ConsoleColor.DarkYellow);
+        public static void WriteInfo(string value, bool withoutTime = false) => WriteLine(value, ConsoleColor.DarkYellow, withoutTime);
+
+        /// <summary>
+        /// Write Info2 Line
+        /// </summary>
+        /// <param name="value"></param>
+        public static void WriteInfo2(string value, bool withoutTime = false) => WriteLine(value, ConsoleColor.Yellow, withoutTime);
 
         /// <summary>
         /// Write Success Line
         /// </summary>
         /// <param name="value"></param>
-        public static void WriteSuccess(string value) => WriteLine(value, ConsoleColor.Green);
+        public static void WriteSuccess(string value, bool withoutTime = false) => WriteLine(value, ConsoleColor.Green, withoutTime);
 
         /// <summary>
         /// Write Error Line
         /// </summary>
         /// <param name="value"></param>
-        public static void WriteError(string value) => WriteLine(value, ConsoleColor.Red);
+        public static void WriteError(string value, bool withoutTime = false) => WriteLine(value, ConsoleColor.Red, withoutTime);
 
     }
 }

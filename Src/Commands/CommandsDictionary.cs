@@ -14,13 +14,23 @@ namespace XamtCli.Commands
 
             ["help"] = new GetHelp(),
 
+            ["cls"] = new Reset(),
+            ["reset"] = new Reset(),
+
+            ["l"] = new ListFolders(),
+            ["ls"] = new ListFolders(),
+            ["dir"] = new ListFolders(),
+            ["info"] = new ListFolders(),
+            
+            ["d"] = new DetectAppFolder(),
+            ["detect"] = new DetectAppFolder(),
+
             ["c"] = new ClearPublishFolder(),
             ["clear"] = new ClearPublishFolder(),
 
             ["z"] = new ZipPublishFolder(),
             ["zip"] = new ZipPublishFolder(),
 
-            ["p"] = new PurePublishFolder(),
             ["pure"] = new PurePublishFolder(),
         };
     }

@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
+using XamtCli.Helpers;
 
 namespace XamtCli.Commands
 {
@@ -20,7 +21,14 @@ namespace XamtCli.Commands
             var startFolder = Directory.GetCurrentDirectory();
             var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             var dateTime = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss", new CultureInfo("fa-IR"));
+
             var suggestedFileName = param.Length == 0 || string.IsNullOrWhiteSpace(param[0]) ? "File" : param[0];
+            if (suggestedFileName == ".")
+            {
+                var armanApp = FileHelper.DetectArmanApplication();
+                suggestedFileName = $"{armanApp.ApplicationName}(v{armanApp.ApplicationVersion})";
+            }
+
             var fileName = $"{suggestedFileName}_{dateTime}.zip";
             var zipPath = Path.Combine(desktop, fileName);
 

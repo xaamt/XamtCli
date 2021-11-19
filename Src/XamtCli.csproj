@@ -11,7 +11,7 @@
     <Product>XAMT Cli</Product>
     <Copyright>XAMT CLI, Copyright (C) XAMT Professionals. All rights reserved.</Copyright>
     <Description>XAMT CLI is a personal cli to faster productivity</Description>
-    <Version>1.1.0</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 
 </Project>
