@@ -19,7 +19,6 @@ namespace XamtCli.Commands
         public bool Execute(params string[] param)
         {
             var startFolder = Directory.GetCurrentDirectory();
-            startFolder = @"D:\Arman IT Co\Daily Report\1401-01\";
             var dir = new DirectoryInfo(startFolder);
 
             var allRecords = new List<DailyReportRecord>();
