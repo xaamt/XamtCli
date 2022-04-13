@@ -35,7 +35,6 @@ namespace XamtCli.Commands
 
             ["generatereport"] = new GenerateMonthlyReport(),
             ["gmr"] = new GenerateMonthlyReport(),
-            ["g"] = new GenerateMonthlyReport(),
         };
     }
 }
