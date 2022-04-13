@@ -21,7 +21,7 @@ namespace XamtCli.Commands
             ["ls"] = new ListFolders(),
             ["dir"] = new ListFolders(),
             ["info"] = new ListFolders(),
-            
+
             ["d"] = new DetectAppFolder(),
             ["detect"] = new DetectAppFolder(),
 
@@ -32,6 +32,10 @@ namespace XamtCli.Commands
             ["zip"] = new ZipPublishFolder(),
 
             ["pure"] = new PurePublishFolder(),
+
+            ["generatereport"] = new GenerateMonthlyReport(),
+            ["gmr"] = new GenerateMonthlyReport(),
+            ["g"] = new GenerateMonthlyReport(),
         };
     }
 }

@@ -15,15 +15,15 @@ namespace XamtCli.Commands
 
         public bool Execute(params string[] param)
         {
-            var dumpExtenstions = new string[] {".pdb", ".design", ".tmp", ".temp" };
-            
+            var dumpExtenstions = new string[] { ".pdb", ".design", ".tmp", ".temp" };
+
             var startFolder = Directory.GetCurrentDirectory();
             var dir = new DirectoryInfo(startFolder);
 
             var fileList = dir.GetFiles("*.*", SearchOption.AllDirectories);
             var dumpCount = 0;
             var dumpSize = 0M;
-            
+
             foreach (var file in fileList)
             {
                 if (dumpExtenstions.Contains(file.Extension.ToLower()))

@@ -12,18 +12,18 @@ namespace XamtCli
         /// <summary>
         /// Execute a command defenition
         /// </summary>
-        /// <param name="defenition"></param>
+        /// <param name="definition"></param>
         /// <returns></returns>
-        public static bool Execute(this CommandDefenition defenition)
+        public static bool Execute(this CommandDefinition definition)
         {
-            var command = ChooseCommand(defenition.Name);
+            var command = ChooseCommand(definition.Name);
 
             if (!string.IsNullOrWhiteSpace(command.GetTitle()))
             {
                 ConsoleHelper.WriteTitle(command.GetTitle());
             }
 
-            var result = command.Execute(defenition.Options);
+            var result = command.Execute(definition.Options);
 
             return result;
         }
@@ -33,11 +33,11 @@ namespace XamtCli
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public static CommandDefenition ParseCommand(this string input)
+        public static CommandDefinition ParseCommand(this string input)
         {
             var parts = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-            var result = new CommandDefenition()
+            var result = new CommandDefinition()
             {
                 Name = parts[0],
                 Options = parts.Skip(1).ToArray()

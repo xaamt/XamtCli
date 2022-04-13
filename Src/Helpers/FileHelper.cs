@@ -25,7 +25,7 @@ namespace XamtCli.Helpers
                 var fileName = file.Name.Replace(file.Extension, null);
                 if (fileName.ToLower().StartsWith("armanit") && fileName.ToLower().EndsWith("webapi"))
                 {
-                    
+
                     var appName = fileName
                         .Replace("armanIt", null, StringComparison.InvariantCultureIgnoreCase)
                         .Replace("webApi", null, StringComparison.InvariantCultureIgnoreCase)
@@ -63,14 +63,14 @@ namespace XamtCli.Helpers
         {
             long size = 0;
             // Add file sizes.
-            FileInfo[] fis = d.GetFiles();
-            foreach (FileInfo fi in fis)
+            var fis = d.GetFiles();
+            foreach (var fi in fis)
             {
                 size += fi.Length;
             }
             // Add subdirectory sizes.
-            DirectoryInfo[] dis = d.GetDirectories();
-            foreach (DirectoryInfo di in dis)
+            var dis = d.GetDirectories();
+            foreach (var di in dis)
             {
                 size += DirSize(di);
             }
