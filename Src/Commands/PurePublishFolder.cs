@@ -20,23 +20,23 @@ namespace XamtCli.Commands
 
             if (armanApp == null)
             {
-                ConsoleHelper.WriteError($"Pure command is only available on ArmanIT application folder for security reseans.");
+                ConsoleHelper.WriteError($"Pure command is only available on ArmanIT application folder for security reasons.");
                 return true;
             }
 
-            var primaryExtenstions = new string[] { ".dll", ".exe", ".xml" };
+            var primaryExtensions = new string[] { ".dll", ".exe", ".xml" };
 
             var startFolder = Directory.GetCurrentDirectory();
             var dir = new DirectoryInfo(startFolder);
 
             var fileList = dir.GetFiles("*.*", SearchOption.AllDirectories)
                 .Where(x => !x.Name.ToLower().StartsWith("armanit.")
-                            || !primaryExtenstions.Contains(x.Extension.ToLower())
+                            || !primaryExtensions.Contains(x.Extension.ToLower())
                             || x.Name.ToLower().StartsWith("armanit.framework")
                             ).ToList();
 
-            
-            
+
+
             var fileDumpCount = 0;
             var dumpSize = 0M;
 
@@ -68,7 +68,7 @@ namespace XamtCli.Commands
                     if (Directory.Exists(folder.FullName))
                     {
                         Directory.Delete(folder.FullName, true);
-                        ConsoleHelper.WriteInfo($"Deleting folder{folder.Name} was successful");
+                        ConsoleHelper.WriteInfo($"Deleting folder {folder.Name} was successful");
                         folderDumpCount++;
                     }
                 }
