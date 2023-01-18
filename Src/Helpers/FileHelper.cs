@@ -10,10 +10,10 @@ namespace XamtCli.Helpers
     public static class FileHelper
     {
         /// <summary>
-        /// Detect folder has arman application and get info
+        /// Detect folder has work application and get info
         /// </summary>
         /// <returns></returns>
-        public static ArmanApplicationFileDescriptor DetectArmanApplication()
+        public static PublishApplicationFileDescriptor DetectWorkApplication()
         {
             var startFolder = Directory.GetCurrentDirectory();
             var dir = new DirectoryInfo(startFolder);
@@ -34,7 +34,24 @@ namespace XamtCli.Helpers
                     var versionInfo = FileVersionInfo.GetVersionInfo(file.FullName);
                     var fileVersion = !string.IsNullOrWhiteSpace(versionInfo.FileVersion) ? versionInfo.FileVersion : "0.0.0";
 
-                    return new ArmanApplicationFileDescriptor()
+                    return new PublishApplicationFileDescriptor()
+                    {
+                        ApplicationName = appName,
+                        ApplicationVersion = fileVersion
+                    };
+                }
+
+                if (fileName.ToLower().StartsWith("gamecore") && fileName.ToLower().Contains("webapi"))
+                {
+
+                    var appName = fileName
+                        .Replace(".webApi", null, StringComparison.InvariantCultureIgnoreCase)
+                        .TrimStart('.').TrimEnd('.');
+
+                    var versionInfo = FileVersionInfo.GetVersionInfo(file.FullName);
+                    var fileVersion = !string.IsNullOrWhiteSpace(versionInfo.FileVersion) ? versionInfo.FileVersion : "0.0.0";
+
+                    return new PublishApplicationFileDescriptor()
                     {
                         ApplicationName = appName,
                         ApplicationVersion = fileVersion

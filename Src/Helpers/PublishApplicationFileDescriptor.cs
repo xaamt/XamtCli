@@ -1,6 +1,6 @@
 ﻿namespace XamtCli.Helpers
 {
-    public class ArmanApplicationFileDescriptor
+    public class PublishApplicationFileDescriptor
     {
         public string ApplicationName { get; set; }
 

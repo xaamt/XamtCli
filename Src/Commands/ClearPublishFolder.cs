@@ -16,6 +16,7 @@ namespace XamtCli.Commands
         public bool Execute(params string[] param)
         {
             var dumpExtensions = new string[] { ".pdb", ".design", ".tmp", ".temp" };
+            var dumpFileName = new string[] { "development.json" };
 
             var startFolder = Directory.GetCurrentDirectory();
             var dir = new DirectoryInfo(startFolder);
@@ -26,7 +27,11 @@ namespace XamtCli.Commands
 
             foreach (var file in fileList)
             {
-                if (dumpExtensions.Contains(file.Extension.ToLower()))
+                var isDumping =
+                    dumpExtensions.Contains(file.Extension.ToLower()) ||
+                    dumpFileName.Any(x => file.Name.ToLower().Contains(x.ToLower()));
+
+                if (isDumping)
                 {
                     try
                     {

@@ -13,7 +13,7 @@ namespace XamtCli.Commands
 
         public bool Execute(params string[] param)
         {
-            var app = FileHelper.DetectArmanApplication();
+            var app = FileHelper.DetectWorkApplication();
 
             if (app != null)
             {
